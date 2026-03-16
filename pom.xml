@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>low-level-programming</module>
+        <module>issue-learning</module>
     </modules>
 
     <properties>
