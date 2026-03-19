@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * JDK17 启动参数
- * java -Xms256m -Xmx256m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=./oom-output/MemoryLeakIssue/dump_demo.hprof "-Xlog:gc*:file=./oom-output/MemoryLeakIssue/gc_demo.log:time,uptime,level,tags"
- * JDK8 需要把GC日志部分修改为 -verbose:gc -Xloggc:./oom-output/MemoryLeakIssue/gc_demo.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps
+ * JDK17 启动参数: {@code java -Xms64m -Xmx64m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=./oom-output/MemoryLeakIssue/dump_demo.hprof "-Xlog:gc*:file=./gc-log/MemoryLeakIssue/gc_demo.log:time,uptime,level,tags:filecount=5,filesize=50M"}
+ * <br/>
+ * JDK8 启动参数: {@code java -verbose:gc -Xloggc:./gc-log/MemoryLeakIssue/gc_demo.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps}
  */
 public class MemoryLeakIssue {
     // 静态集合，生命周期与 JVM 相同，会导致其中的对象无法被回收
