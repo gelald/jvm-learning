@@ -11,7 +11,7 @@
     <modules>
         <module>low-level-programming</module>
         <module>issue-learning</module>
-        <module>jsr-learning</module>
+        <module>jfr-learning</module>
     </modules>
 
     <properties>
