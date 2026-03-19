@@ -15,7 +15,7 @@ public class JfrDemo {
         System.out.println();
 
         // 模拟业务场景：税务申报消息处理
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 50; i++) {
             // 每次处理一条申报消息
             processTaxDeclaration(i);
 
@@ -36,12 +36,12 @@ public class JfrDemo {
         // 1. 创建申报 DTO（模拟从数据库加载）
         TaxAuditDTO dto = buildTaxAuditDTO(index);
 
-        System.out.println("dto size: " + ClassLayout.parseInstance(dto).instanceSize());
+//        System.out.println("dto size: " + ClassLayout.parseInstance(dto).instanceSize());
 
         // 2. 序列化（这里是大对象分配的关键点）
         byte[] payload = serializeToJson(dto);
 
-        System.out.println("payload size: " + ClassLayout.parseInstance(payload).instanceSize());
+//        System.out.println("payload size: " + ClassLayout.parseInstance(payload).instanceSize());
 
         // 3. 方法结束，dto 和 payload 都会被回收（短命对象）
         // 模拟业务间隔
