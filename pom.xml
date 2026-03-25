@@ -12,6 +12,7 @@
         <module>low-level-programming</module>
         <module>issue-learning</module>
         <module>jfr-learning</module>
+        <module>classloader-learning</module>
     </modules>
 
     <properties>
