@@ -11,7 +11,7 @@ import java.util.UUID;
  */
 public class MemoryLeakIssue {
     // 静态集合，生命周期与 JVM 相同，会导致其中的对象无法被回收
-    private static final List<String> LEAKY_CACHE = new ArrayList<>();
+    private static final List<MockUser> LEAKY_CACHE = new ArrayList<>();
 
     public static void main(String[] args) throws InterruptedException {
         System.out.println("开始模拟内存泄漏...");
@@ -19,21 +19,22 @@ public class MemoryLeakIssue {
 
         int count = 0;
 
-        /*for (int i = 0; i < 10; i++) {
+        long i = 0;
+        for (int j = 0; j < 100; j++) {
             String data = UUID.randomUUID().toString() + "_padding_data_to_consume_memory_" + count;
-            LEAKY_CACHE.add(data);
+            LEAKY_CACHE.add(new MockUser(i++, data));
 
             count++;
         }
 
         while (true) {
 
-        }*/
-
+        }
+        /*long i = 0;
         while (true) {
             // 制造大对象字符串，快速消耗内存
             String data = UUID.randomUUID().toString() + "_padding_data_to_consume_memory_" + count;
-            LEAKY_CACHE.add(data);
+            LEAKY_CACHE.add(new MockUser(i++, data));
 
             count++;
 
@@ -42,7 +43,7 @@ public class MemoryLeakIssue {
                 // 稍微休眠，方便观察 GC 日志频率
                 Thread.sleep(50);
             }
-        }
+        }*/
     }
 }
 
